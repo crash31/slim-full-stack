@@ -10,12 +10,12 @@ $app->get('/[{name}]', function (Request $request, Response $response, array $ar
     $this->logger->info("Slim-Skeleton '/' route");
 
     // Render index view
-    return $this->renderer->render($response, 'index.phtml', $args);
+    return $this->view->render($response, 'pages/landing.twig', $args);
 });
 
 // Define named route
 $app->get('/hello/{name}', function ($request, $response, $args) {
-  return $this->view->render($response, 'profile.html', [
+  return $this->view->render($response, 'pages/profile.twig', [
     'name' => $args['name']
   ]);
 })->setName('profile');

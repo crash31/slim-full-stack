@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block header %}
+  <p>Further Twig Testing</p>
+{% endblock %}
+
+{% block body %}
+
+{{ parent() }}
+
+{% if name %}
+  <h2>Hello {{ name }}!</h2>
+{% else %}
+  <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
+{% endif %}
+
+{% endblock %}

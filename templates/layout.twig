@@ -26,9 +26,15 @@
         </style>
     </head>
     <body>
+
+      {% block header %}
+        <p>Twig Test</p>
+      {% endblock %}
+
       {% block body %}
         <h1>Slim</h1>
         <div>a microframework for PHP</div>
       {% endblock %}
+
     </body>
 </html>
