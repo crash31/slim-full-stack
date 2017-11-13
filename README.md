@@ -56,3 +56,9 @@ Run this command to run the test suite
 	php composer.phar test
 
 That's it! Now go build something cool.
+
+---
+
+_ For more cool development environments check out our [Github](https://github.com/crash31). _
+
+_ If you are interested in working with us, check out the [Crash 31 Website](https://crash31.com/). _
