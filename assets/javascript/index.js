@@ -5,6 +5,7 @@ class Log {
   writeLog() {
     console.log("Webpack is up and running!");
     console.log("Babel is up and running es2015!");
+    console.log("Testing. 1. 2. 3.");
   }
 }
 

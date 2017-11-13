@@ -3,7 +3,7 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-// Routes
+// Create Routes Here
 
 $app->get('/[{name}]', function (Request $request, Response $response, array $args) {
     // Sample log message
