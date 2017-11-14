@@ -10,7 +10,7 @@ _ A list of instruction to follow in order to set up your Full Stack Environment
 
 ### Install and set up project.
 
-Clone this git repository.
+Clone this git repository into your `htdocs` directory in MAMP.
 
 Run composer to install backend dependencies. This should create a 'vendor' folder in your project directory.
 

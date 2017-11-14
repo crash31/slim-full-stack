@@ -4,28 +4,34 @@
   "description": "Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server -d --hot --config webpack.config.js --watch",
-    "production": "NODE_ENV=production webpack"
+    "build": "webpack --progress",
+    "watch": "webpack --watch --progress",
+    "start": "webpack --progress && webpack-dashboard -- webpack-dev-server -d --hot --config webpack.config.js --watch",
+    "production": "NODE_ENV=production webpack --progress"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
+    "css-hot-loader": "^1.3.3",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "image-webpack-loader": "^3.4.2",
     "node-sass": "^4.6.1",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^2.0.8",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.8.1",
+    "webpack-dashboard": "^1.0.2",
     "webpack-dev-server": "^2.9.4"
   }
 }
