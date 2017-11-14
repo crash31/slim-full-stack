@@ -89,7 +89,7 @@ let config = {
       }
     )
   ],
-  devtool: 'eval-source-map'
+  devtool: 'source-map'
 }
 
 module.exports = config;
@@ -97,7 +97,7 @@ module.exports = config;
 // Run for production
 if (process.env.NODE_ENV === 'production') {
   module.exports.plugins.push(
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
     new OptimizeCSSAssets()
   );
 }

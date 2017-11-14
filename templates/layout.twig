@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>Slim 3</title>
+        <title>Slim Full Stack</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 
         <link rel="stylesheet" href="/resources/style.css"> <!-- webpack stylesheet output -->
@@ -14,12 +14,16 @@
     <body>
 
       {% block header %}
-        <p>Check out our <a href="https://github.com/crash31">Github</a>.</p>
+        <p class="text-center">Check out our <a href="https://github.com/crash31">Github</a>.</p>
       {% endblock %}
 
       {% block body %}
         <h1>Slim Full Stack</h1>
       {% endblock %}
+
+      <footer class="text-center">
+        <p><small>Are you in the market for some top quality web development? Check us out at <a href="https://crash31.com">Crash 31</a>.</small></p>
+      </footer>
 
       <script type="text/javascript" src="/resources/output.js"></script> <!-- webpack javascript output -->
 

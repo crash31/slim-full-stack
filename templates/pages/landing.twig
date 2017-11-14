@@ -2,13 +2,21 @@
 
 {% block body %}
 
-{{ parent() }}
+<section class="container">
 
-{% if name %}
-  <h2>Hello {{ name }}!</h2>
-{% else %}
-  <p class="lead">Good to see you.</p>
-  <p><small>If you are seeing this, that means things are running smoothely.</small></p>
-{% endif %}
+  <div class="jumbotron text-center">
+
+    {{ parent() }}
+
+    {% if name %}
+      <h2>Hello {{ name }}!</h2>
+    {% else %}
+      <p class="lead">Good to see you.</p>
+      <p><small>If you are seeing this, that means things are running smoothely.</small></p>
+    {% endif %}
+
+  </div>
+
+</section>
 
 {% endblock %}
