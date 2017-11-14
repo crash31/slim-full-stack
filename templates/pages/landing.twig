@@ -1,10 +1,5 @@
 {% extends 'layout.twig' %}
 
-{% block header %}
-  <p>BrowserSync works well but I'm still having issues with webpack-dev-server serving front-end assets.</p>
-  <p><small>Webpack is up and running.</small></p>
-{% endblock %}
-
 {% block body %}
 
 {{ parent() }}
@@ -12,7 +7,8 @@
 {% if name %}
   <h2>Hello {{ name }}!</h2>
 {% else %}
-  <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
+  <p class="lead">Good to see you.</p>
+  <p><small>If you are seeing this, that means things are running smoothely.</small></p>
 {% endif %}
 
 {% endblock %}

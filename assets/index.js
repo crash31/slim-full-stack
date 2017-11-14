@@ -1,4 +1,6 @@
 // Add Styling to the project
+import 'bootstrap';
+
 require('./scss/styles.scss');
 
 class Log {

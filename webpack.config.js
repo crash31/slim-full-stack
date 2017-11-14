@@ -4,7 +4,6 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-// const DashboardPlugin = require('webpack-dashboard/plugin');
 
 let config = {
   entry: path.resolve(__dirname, './assets/index.js'),
@@ -64,7 +63,12 @@ let config = {
   plugins: [
     new ExtractTextWebpackPlugin('style.css'),
     new webpack.NamedModulesPlugin(),
-    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default']
+    }),
     new BrowserSyncPlugin(
       {
         proxy: 'http://localhost:8888',
@@ -90,6 +94,7 @@ let config = {
 
 module.exports = config;
 
+// Run for production
 if (process.env.NODE_ENV === 'production') {
   module.exports.plugins.push(
     new webpack.optimize.UglifyJsPlugin(),
