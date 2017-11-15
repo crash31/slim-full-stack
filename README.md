@@ -1,5 +1,7 @@
 # Full Stack Boilerplate
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+
 _ A Comprehensive Full Stack Environment built with [Slim Framework](https://www.slimframework.com/) _
 
 A special thanks to [codeburst.io](https://codeburst.io/) for the foundation for this project's Webpack configuration, the basis for which found [here](https://codeburst.io/easy-guide-for-webpack-2-0-from-scratch-fe508a3ce44e).

@@ -1,9 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
+
+// Plugins
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
 
 let config = {
   entry: path.resolve(__dirname, './assets/index.js'),
@@ -23,6 +27,12 @@ let config = {
   },
   module: {
     rules: [
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
       {
         test: /\.js$/, // files ending with .js
         exclude: /node_modules/, // exclude the node_modules directory
@@ -62,6 +72,11 @@ let config = {
   },
   plugins: [
     new ExtractTextWebpackPlugin('style.css'),
+    new StyleLintPlugin({
+      context: './assets/scss',
+      syntax: 'scss',
+      quiet: false
+    }),
     new webpack.NamedModulesPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
