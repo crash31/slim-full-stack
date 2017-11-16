@@ -1,0 +1,5 @@
+/vendor/
+/logs/*
+/node_modules/
+/public/resources/
+!/logs/README.md
