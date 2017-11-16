@@ -9,6 +9,7 @@ if (PHP_SAPI == 'cli-server') {
     }
 }
 
+// Composer Autoload
 require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
@@ -16,6 +17,21 @@ session_start();
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
 $app = new \Slim\App($settings);
+
+// Initialize the database connection
+use Medoo\Medoo;
+
+$database = new Medoo([
+  // required
+  'database_type' => 'mysql',
+  'database_name' => 'webtracker_data',
+  'server' => 'localhost',
+  'username' => 'root',
+  'password' => 'root',
+
+  'charset' => 'utf8_general_ci',
+  'port' => 3306
+]);
 
 // Set up dependencies
 require __DIR__ . '/../src/dependencies.php';

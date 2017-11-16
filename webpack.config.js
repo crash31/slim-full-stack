@@ -86,7 +86,7 @@ let config = {
     }),
     new BrowserSyncPlugin(
       {
-        proxy: 'http://localhost:8888',
+        proxy: 'http://localhost:80',
         files: [
           {
             match: [
