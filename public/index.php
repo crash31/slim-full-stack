@@ -18,6 +18,7 @@ session_start();
 $settings = require __DIR__ . '/../src/settings.php';
 $app = new \Slim\App($settings);
 
+/*
 // Initialize the database connection
 use Medoo\Medoo;
 
@@ -32,6 +33,7 @@ $database = new Medoo([
   'charset' => 'utf8_general_ci',
   'port' => 3306
 ]);
+*/
 
 // Set up dependencies
 require __DIR__ . '/../src/dependencies.php';
