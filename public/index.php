@@ -15,8 +15,9 @@ require __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 // Instantiate the app
-$setting = require __DIR__ . '/../src/settings.php';
-$app = new \Slim\App($setting);
+//new comment
+$settings = require __DIR__ . '/../src/settings.php';
+$app = new \Slim\App($settings);
 
 /*
 // Initialize the database connection
