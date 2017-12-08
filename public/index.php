@@ -1,43 +1,29 @@
 <?php
 
-//non conflicting change
-
-if (PHP_SAPI == 'cli-server') {
-    // To help the built-in PHP dev server, check if the request was actually for
-    // something which should probably be served as a static file
-    $url  = parse_url($_SERVER['REQUEST_URI']);
-    $file = __DIR__ . $url['path'];
-    if (is_file($file)) {
-        return false;
-    }
-}
-
 // Composer Autoload
 require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
 
-// Instantiate the app
-//new comment
+
+//pull in app settings
 $settings = require __DIR__ . '/../src/settings.php';
-$app = new \Slim\App($settings);
 
-/*
-// Initialize the database connection
-use Medoo\Medoo;
+//determine proper environment
+$dev_tlds = [
+    'loc',
+    'dev',
+    ''
+];
 
-$database = new Medoo([
-  // required
-  'database_type' => 'mysql',
-  'database_name' => 'webtracker_data',
-  'server' => 'localhost',
-  'username' => 'root',
-  'password' => 'root',
+if(in_array($_SERVER['TLD_SUFFIX'], $dev_tlds)){
+    $mode = 'development';
+} else {
+    $mode = 'production';
+}
 
-  'charset' => 'utf8_general_ci',
-  'port' => 3306
-]);
-*/
+// Instantiate the app
+$app = new \Slim\App($settings[$mode]); //load settings file based on environment
 
 // Set up dependencies
 require __DIR__ . '/../src/dependencies.php';
