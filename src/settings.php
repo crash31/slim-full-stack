@@ -8,7 +8,8 @@ return [
             // Renderer settings
             'renderer' => [
                 'template_path' => __DIR__ . '/../templates/',
-                'cache' => false
+                'cache' => false,
+                'debug' => true,
             ],
 
             //database settings
@@ -38,7 +39,8 @@ return [
             // Renderer settings
             'renderer' => [
                 'template_path' => __DIR__ . '/../templates/',
-                'cache' => true
+                'cache' => false,
+                'debug' => false,
             ],
 
             //database settings

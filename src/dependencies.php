@@ -1,27 +1,25 @@
 <?php
 // DIC configuration
 use Medoo\Medoo;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Adapter\Local;
 
 $container = $app->getContainer();
 
 // Register Twig View helper
 $container['view'] = function ($c) {
-  $settings = $c->get('settings')['renderer'];
-  $view = new \Slim\Views\Twig($settings['template_path'], [
-    'cache' => $settings['cache']
-  ]);
-
-  // Instantiate and add Slim specific extension
-  $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
-  $view->addExtension(new \Slim\Views\TwigExtension($c['router'], $basePath));
-
-  return $view;
-};
-
-// view renderer
-$container['renderer'] = function ($c) {
     $settings = $c->get('settings')['renderer'];
-    return new Slim\Views\PhpRenderer($settings['template_path']);
+    $view = new \Slim\Views\Twig($settings['template_path'], [
+        'cache' => $settings['cache'],
+        'debug' => $settings['debug'],
+    ]);
+
+    // Instantiate and add Slim specific extension
+    $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
+    $view->addExtension(new \Slim\Views\TwigExtension($c['router'], $basePath));
+    $view->addExtension(new Twig_Extension_Debug());
+
+    return $view;
 };
 
 // monolog
@@ -41,7 +39,16 @@ $container['db'] = function ($c) {
 	);
 };
 
-function pl($data) {
+//flystyem https://github.com/thephpleague/flysystem
+//Flysystem is a filesystem abstraction which allows you to easily swap out a local filesystem for a remote one. Technical debt is reduced as is the chance of vendor lock-in.
+$container['disk']  = function ($c) {
+    //$settings = $c->get('settings')['disk'];
+    $adapter = new Local(__DIR__.'/../content/public');
+    $filesystem = new Filesystem($adapter);
+    return $filesystem;
+};
+
+function dump($data) {
     echo '<pre>';
     print_r($data);
     echo '</pre>';
