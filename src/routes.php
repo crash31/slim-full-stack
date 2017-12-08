@@ -5,16 +5,6 @@ use Slim\Http\Response;
 
 // Create Routes Here
 
-/*
-$app->get('/[{name}]', function (Request $request, Response $response, array $args) {
-    // Sample log message
-    $this->logger->info("Slim-Skeleton '/' route");
-
-    // Render index view
-    return $this->view->render($response, 'pages/landing.twig', $args);
-});
-*/
-
 // Define named route
 $app->get('/hello/{name}', function ($request, $response, $args) {
   return $this->view->render($response, 'pages/profile.twig', [
@@ -86,4 +76,12 @@ $app->get('/disk', function ($request, $response, $args) {
 
     // Render index view
     return $this->view->render($response, 'pages/status.twig', $args);
+});
+
+$app->get('/[{name}]', function (Request $request, Response $response, array $args) {
+    // Sample log message
+    $this->logger->info("Slim-Skeleton '/' route");
+
+    // Render index view
+    return $this->view->render($response, 'pages/landing.twig', $args);
 });

@@ -86,7 +86,7 @@ let config = {
     }),
     new BrowserSyncPlugin(
       {
-        proxy: 'http://localhost:80',
+        proxy: 'http://slim-full-stack.loc',
         files: [
           {
             match: [
