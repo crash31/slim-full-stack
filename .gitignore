@@ -1,5 +1,6 @@
 /vendor/
 /logs/*
+/content/*
 /node_modules/
 /public/resources/
 !/logs/README.md
