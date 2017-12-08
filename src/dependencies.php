@@ -1,5 +1,6 @@
 <?php
 // DIC configuration
+use Medoo\Medoo;
 
 $container = $app->getContainer();
 
@@ -7,7 +8,7 @@ $container = $app->getContainer();
 $container['view'] = function ($c) {
   $settings = $c->get('settings')['renderer'];
   $view = new \Slim\Views\Twig($settings['template_path'], [
-    'cache' => false
+    'cache' => $settings['cache']
   ]);
 
   // Instantiate and add Slim specific extension
@@ -31,3 +32,17 @@ $container['logger'] = function ($c) {
     $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
     return $logger;
 };
+
+//medoo (database abstraction layer) https://medoo.in
+$container['db'] = function ($c) {
+    $settings = $c->get('settings')['db'];
+	return new Medoo(
+		$settings
+	);
+};
+
+function pl($data) {
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+}
